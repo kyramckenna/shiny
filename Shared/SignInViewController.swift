@@ -10,10 +10,10 @@ import UIKit
 import os
 
 class SignInViewController: UIViewController {
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userNameField: UITextField!
-    @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var passwordField: UITextField!
+    
+    // IBOutlets
+    
+    @IBOutlet weak var signInButton: UIButton!
 
     private var signInObserver: NSObjectProtocol?
     private var signInErrorObserver: NSObjectProtocol?
@@ -26,11 +26,22 @@ class SignInViewController: UIViewController {
         }
 
         signInErrorObserver = NotificationCenter.default.addObserver(forName: .ModalSignInSheetCanceled, object: nil, queue: nil) { _ in
-            self.showSignInForm()
+            
         }
-
-        guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signInWith(anchor: window, preferImmediatelyAvailableCredentials: true)
+        
+        // New call to check for passkey
+        if let window = self.view.window {
+            (UIApplication.shared.delegate as? AppDelegate)?
+                .accountManager
+                .checkForLocalPasskey(anchor: window) { hasPasskey in
+                    if !hasPasskey {
+                        self.signInButton.isHidden = true
+                    } else{
+                        self.signInButton.isHidden = false
+                    }
+                }
+        }
+       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -44,25 +55,105 @@ class SignInViewController: UIViewController {
         
         super.viewDidDisappear(animated)
     }
+    
+    
 
     @IBAction func createAccount(_ sender: Any) {
-        guard let userName = userNameField.text else {
-            Logger().log("No user name provided")
-            return
-        }
 
-        guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signUpWith(userName: userName, anchor: window)
+        // Reset Cookie
+        Constants.User.sessionId = ""
+        
+        // Get name of Device
+        let deviceName = UIDevice.current.name
+        let stripDeviceName = String(deviceName.prefix(4))
+        
+        let firstName  = "firstName_" + randomString(length: 7)
+        let lastName   = "lastName_" + randomString(length: 7)
+        let password   = randomString(length: 7)
+        
+        // Get UUID to match one used in GDPR
+        let uuid = UIDevice.current.identifierForVendor?.uuidString
+        
+        // UserID - name of device+@+random 7 letters + .com
+        let p0 = "Kyra" + stripDeviceName + "-" + uuid!
+        let p1 = String(p0.prefix(35))
+        let p2 = randomString(length: 7)
+        var email = "\(p1)@\(p2).com" //UserID
+        
+        email = email.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // Create account
+        RPSAService.shared.createAccount(first: firstName, last: lastName, username: email, password: password) { (response ) in
+            
+            if let error = response.error {
+                self.show(title: "Create Account Error", message: error.localizedDescription) { action in
+                    //self.goBack()
+                }
+            } else {
+                // SUCCESS
+                
+                SettingsManager.shared.setAccount(withName: email)
+
+                // Start creating credentials
+                guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
+                (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signUpWith(userName: email, anchor: window)
+            }
+        }
+    }
+    
+    // Random String for account creation
+    
+    func randomString(length: Int) -> String {
+        
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
+    }
+    
+    func show(title: String, message: String, handler: @escaping (_ isOkAction: Bool) -> Void) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let actionOk =  UIAlertAction(title: "OK", style: .default) { (action) -> Void in
+            return handler(true)
+        }
+        alertController.addAction(actionOk)
+        
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            return handler(false)
+        }
+        alertController.addAction(actionCancel)
+        
+        if let controller = self.navigationController?.visibleViewController {
+            controller.present(alertController, animated: true)
+        } else {
+            present(alertController, animated: true)
+        }
     }
 
-    func showSignInForm() {
-        userNameLabel.isHidden = false
-        userNameField.isHidden = false
-        passwordLabel.isHidden = false
-        passwordField.isHidden = false
+    @IBAction func showSignInForm(_ sender: Any) {
 
-        guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        (UIApplication.shared.delegate as? AppDelegate)?.accountManager.beginAutoFillAssistedPasskeySignIn(anchor: window)
+        // Request auth
+        RPSAService.shared.requestAuthentication() { (response ) in
+            
+            if let error = response.error {
+                self.show(title: "Authentication request failed", message: error.localizedDescription) { action in
+                    
+                }
+            } else {
+                guard let window = self.view.window else { fatalError("The view was not in the app's view hierarchy!") }
+                (UIApplication.shared.delegate as? AppDelegate)?.accountManager.signInWith(anchor: window, preferImmediatelyAvailableCredentials: true)
+            }
+        }
     }
 
     func didFinishSignIn() {
@@ -73,5 +164,6 @@ class SignInViewController: UIViewController {
     @IBAction func tappedBackground(_ sender: Any) {
         self.view.endEditing(true)
     }
+    
 }
 

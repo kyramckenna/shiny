@@ -3,10 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83870D1F2DE86E930077A5AF /* ServerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D142DE86E930077A5AF /* ServerOperation.swift */; };
+		83870D202DE86E930077A5AF /* CreateSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D082DE86E930077A5AF /* CreateSessionResponse.swift */; };
+		83870D222DE86E930077A5AF /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D1B2DE86E930077A5AF /* ServerInfo.swift */; };
+		83870D232DE86E930077A5AF /* RequestRegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D0F2DE86E930077A5AF /* RequestRegistrationResponse.swift */; };
+		83870D252DE86E930077A5AF /* ServerOperationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D152DE86E930077A5AF /* ServerOperationError.swift */; };
+		83870D272DE86E930077A5AF /* CreateAuthenticatorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D072DE86E930077A5AF /* CreateAuthenticatorRequest.swift */; };
+		83870D282DE86E930077A5AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D172DE86E930077A5AF /* Constants.swift */; };
+		83870D292DE86E930077A5AF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D1D2DE86E930077A5AF /* Utils.swift */; };
+		83870D2C2DE86E930077A5AF /* ListAuthenticatorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D0C2DE86E930077A5AF /* ListAuthenticatorsResponse.swift */; };
+		83870D2D2DE86E930077A5AF /* BaseNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D052DE86E930077A5AF /* BaseNetworkResponse.swift */; };
+		83870D2E2DE86E930077A5AF /* VerifyAuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D102DE86E930077A5AF /* VerifyAuthenticationResponse.swift */; };
+		83870D2F2DE86E930077A5AF /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D1C2DE86E930077A5AF /* SettingsManager.swift */; };
+		83870D302DE86E930077A5AF /* RequestAuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D0E2DE86E930077A5AF /* RequestAuthenticationResponse.swift */; };
+		83870D322DE86E930077A5AF /* GetPolicyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D0B2DE86E930077A5AF /* GetPolicyResponse.swift */; };
+		83870D332DE86E930077A5AF /* DeregisterAuthenticatorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D092DE86E930077A5AF /* DeregisterAuthenticatorResponse.swift */; };
+		83870D352DE86E930077A5AF /* VerifyCombinedAuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D112DE86E930077A5AF /* VerifyCombinedAuthenticationResponse.swift */; };
+		83870D372DE86E930077A5AF /* GetAuthenticatorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D0A2DE86E930077A5AF /* GetAuthenticatorResponse.swift */; };
+		83870D3A2DE86E930077A5AF /* CreateAccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D062DE86E930077A5AF /* CreateAccountResponse.swift */; };
+		83870D3B2DE86E930077A5AF /* AuthenticatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D042DE86E930077A5AF /* AuthenticatorInfo.swift */; };
+		83870D3C2DE86E930077A5AF /* RPSAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870D132DE86E930077A5AF /* RPSAService.swift */; };
+		83870D3D2DE86E930077A5AF /* DAS-Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83870D182DE86E930077A5AF /* DAS-Errors.strings */; };
+		83870D3E2DE86E930077A5AF /* DAS-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83870D192DE86E930077A5AF /* DAS-Localizable.strings */; };
+		83870D442DE9DEA60077A5AF /* SwiftCBOR in Frameworks */ = {isa = PBXBuildFile; productRef = 83870D432DE9DEA60077A5AF /* SwiftCBOR */; };
+		83E3DF252E13D05C00C9CFC4 /* PasskeyChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E3DF242E13D05300C9CFC4 /* PasskeyChecker.swift */; };
 		E09D56EF2669A5F2004A809B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D56EE2669A5F2004A809B /* AppDelegate.swift */; };
 		E09D56F12669A5F2004A809B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D56F02669A5F2004A809B /* SceneDelegate.swift */; };
 		E09D56F62669A5F2004A809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E09D56F42669A5F2004A809B /* Main.storyboard */; };
@@ -18,6 +42,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83870D042DE86E930077A5AF /* AuthenticatorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorInfo.swift; sourceTree = "<group>"; };
+		83870D052DE86E930077A5AF /* BaseNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkResponse.swift; sourceTree = "<group>"; };
+		83870D062DE86E930077A5AF /* CreateAccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountResponse.swift; sourceTree = "<group>"; };
+		83870D072DE86E930077A5AF /* CreateAuthenticatorRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAuthenticatorRequest.swift; sourceTree = "<group>"; };
+		83870D082DE86E930077A5AF /* CreateSessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionResponse.swift; sourceTree = "<group>"; };
+		83870D092DE86E930077A5AF /* DeregisterAuthenticatorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeregisterAuthenticatorResponse.swift; sourceTree = "<group>"; };
+		83870D0A2DE86E930077A5AF /* GetAuthenticatorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthenticatorResponse.swift; sourceTree = "<group>"; };
+		83870D0B2DE86E930077A5AF /* GetPolicyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPolicyResponse.swift; sourceTree = "<group>"; };
+		83870D0C2DE86E930077A5AF /* ListAuthenticatorsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAuthenticatorsResponse.swift; sourceTree = "<group>"; };
+		83870D0E2DE86E930077A5AF /* RequestAuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAuthenticationResponse.swift; sourceTree = "<group>"; };
+		83870D0F2DE86E930077A5AF /* RequestRegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRegistrationResponse.swift; sourceTree = "<group>"; };
+		83870D102DE86E930077A5AF /* VerifyAuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticationResponse.swift; sourceTree = "<group>"; };
+		83870D112DE86E930077A5AF /* VerifyCombinedAuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCombinedAuthenticationResponse.swift; sourceTree = "<group>"; };
+		83870D132DE86E930077A5AF /* RPSAService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSAService.swift; sourceTree = "<group>"; };
+		83870D142DE86E930077A5AF /* ServerOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerOperation.swift; sourceTree = "<group>"; };
+		83870D152DE86E930077A5AF /* ServerOperationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerOperationError.swift; sourceTree = "<group>"; };
+		83870D172DE86E930077A5AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		83870D182DE86E930077A5AF /* DAS-Errors.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "DAS-Errors.strings"; sourceTree = "<group>"; };
+		83870D192DE86E930077A5AF /* DAS-Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "DAS-Localizable.strings"; sourceTree = "<group>"; };
+		83870D1B2DE86E930077A5AF /* ServerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInfo.swift; sourceTree = "<group>"; };
+		83870D1C2DE86E930077A5AF /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		83870D1D2DE86E930077A5AF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		83E3DF242E13D05300C9CFC4 /* PasskeyChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasskeyChecker.swift; sourceTree = "<group>"; };
 		D0EE5C66F4ACE15F993A4F03 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		E09D56EB2669A5F2004A809B /* Shiny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shiny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09D56EE2669A5F2004A809B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,12 +86,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83870D442DE9DEA60077A5AF /* SwiftCBOR in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83870D122DE86E930077A5AF /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				83870D042DE86E930077A5AF /* AuthenticatorInfo.swift */,
+				83870D052DE86E930077A5AF /* BaseNetworkResponse.swift */,
+				83870D062DE86E930077A5AF /* CreateAccountResponse.swift */,
+				83870D072DE86E930077A5AF /* CreateAuthenticatorRequest.swift */,
+				83870D082DE86E930077A5AF /* CreateSessionResponse.swift */,
+				83870D092DE86E930077A5AF /* DeregisterAuthenticatorResponse.swift */,
+				83870D0A2DE86E930077A5AF /* GetAuthenticatorResponse.swift */,
+				83870D0B2DE86E930077A5AF /* GetPolicyResponse.swift */,
+				83870D0C2DE86E930077A5AF /* ListAuthenticatorsResponse.swift */,
+				83870D0E2DE86E930077A5AF /* RequestAuthenticationResponse.swift */,
+				83870D0F2DE86E930077A5AF /* RequestRegistrationResponse.swift */,
+				83870D102DE86E930077A5AF /* VerifyAuthenticationResponse.swift */,
+				83870D112DE86E930077A5AF /* VerifyCombinedAuthenticationResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		83870D162DE86E930077A5AF /* RP Server Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83870D122DE86E930077A5AF /* Responses */,
+				83870D132DE86E930077A5AF /* RPSAService.swift */,
+				83870D142DE86E930077A5AF /* ServerOperation.swift */,
+				83870D152DE86E930077A5AF /* ServerOperationError.swift */,
+			);
+			path = "RP Server Classes";
+			sourceTree = "<group>";
+		};
+		83870D1E2DE86E930077A5AF /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				83870D162DE86E930077A5AF /* RP Server Classes */,
+				83870D172DE86E930077A5AF /* Constants.swift */,
+				83870D182DE86E930077A5AF /* DAS-Errors.strings */,
+				83870D192DE86E930077A5AF /* DAS-Localizable.strings */,
+				83870D1B2DE86E930077A5AF /* ServerInfo.swift */,
+				83870D1C2DE86E930077A5AF /* SettingsManager.swift */,
+				83870D1D2DE86E930077A5AF /* Utils.swift */,
+			);
+			path = REST;
+			sourceTree = "<group>";
+		};
 		D3C317E8D9435C184C6AAB6B /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,8 +169,10 @@
 			isa = PBXGroup;
 			children = (
 				E0C944D82669A8B50033265C /* Shiny.entitlements */,
+				83870D1E2DE86E930077A5AF /* REST */,
 				E09D56EE2669A5F2004A809B /* AppDelegate.swift */,
 				E09D56F02669A5F2004A809B /* SceneDelegate.swift */,
+				83E3DF242E13D05300C9CFC4 /* PasskeyChecker.swift */,
 				E0C944D42669A8060033265C /* AccountManager.swift */,
 				E0C944D22669A7DF0033265C /* SignInViewController.swift */,
 				E0C944D62669A8840033265C /* UserHomeViewController.swift */,
@@ -141,6 +236,9 @@
 				Base,
 			);
 			mainGroup = E09D56E22669A5F2004A809B;
+			packageReferences = (
+				83870D422DE9DEA60077A5AF /* XCRemoteSwiftPackageReference "SwiftCBOR" */,
+			);
 			productRefGroup = E09D56EC2669A5F2004A809B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -156,6 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E09D56FB2669A5F5004A809B /* LaunchScreen.storyboard in Resources */,
+				83870D3D2DE86E930077A5AF /* DAS-Errors.strings in Resources */,
+				83870D3E2DE86E930077A5AF /* DAS-Localizable.strings in Resources */,
 				E09D56F82669A5F5004A809B /* Assets.xcassets in Resources */,
 				E09D56F62669A5F2004A809B /* Main.storyboard in Resources */,
 			);
@@ -170,6 +270,27 @@
 			files = (
 				E0C944D52669A8060033265C /* AccountManager.swift in Sources */,
 				E0C944D32669A7DF0033265C /* SignInViewController.swift in Sources */,
+				83870D1F2DE86E930077A5AF /* ServerOperation.swift in Sources */,
+				83870D202DE86E930077A5AF /* CreateSessionResponse.swift in Sources */,
+				83870D222DE86E930077A5AF /* ServerInfo.swift in Sources */,
+				83870D232DE86E930077A5AF /* RequestRegistrationResponse.swift in Sources */,
+				83870D252DE86E930077A5AF /* ServerOperationError.swift in Sources */,
+				83870D272DE86E930077A5AF /* CreateAuthenticatorRequest.swift in Sources */,
+				83E3DF252E13D05C00C9CFC4 /* PasskeyChecker.swift in Sources */,
+				83870D282DE86E930077A5AF /* Constants.swift in Sources */,
+				83870D292DE86E930077A5AF /* Utils.swift in Sources */,
+				83870D2C2DE86E930077A5AF /* ListAuthenticatorsResponse.swift in Sources */,
+				83870D2D2DE86E930077A5AF /* BaseNetworkResponse.swift in Sources */,
+				83870D2E2DE86E930077A5AF /* VerifyAuthenticationResponse.swift in Sources */,
+				83870D2F2DE86E930077A5AF /* SettingsManager.swift in Sources */,
+				83870D302DE86E930077A5AF /* RequestAuthenticationResponse.swift in Sources */,
+				83870D322DE86E930077A5AF /* GetPolicyResponse.swift in Sources */,
+				83870D332DE86E930077A5AF /* DeregisterAuthenticatorResponse.swift in Sources */,
+				83870D352DE86E930077A5AF /* VerifyCombinedAuthenticationResponse.swift in Sources */,
+				83870D372DE86E930077A5AF /* GetAuthenticatorResponse.swift in Sources */,
+				83870D3A2DE86E930077A5AF /* CreateAccountResponse.swift in Sources */,
+				83870D3B2DE86E930077A5AF /* AuthenticatorInfo.swift in Sources */,
+				83870D3C2DE86E930077A5AF /* RPSAService.swift in Sources */,
 				E09D56EF2669A5F2004A809B /* AppDelegate.swift in Sources */,
 				E0C944D72669A8840033265C /* UserHomeViewController.swift in Sources */,
 				E09D56F12669A5F2004A809B /* SceneDelegate.swift in Sources */,
@@ -324,14 +445,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shared/Shiny.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74V7N6MW3W;
+				DEVELOPMENT_TEAM = X35FV693K3;
 				INFOPLIST_FILE = Shared/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tkhqlabs.shiny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daon.shiny;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;
@@ -349,14 +470,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shared/Shiny.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74V7N6MW3W;
+				DEVELOPMENT_TEAM = X35FV693K3;
 				INFOPLIST_FILE = Shared/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tkhqlabs.shiny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daon.shiny;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;
@@ -388,6 +509,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		83870D422DE9DEA60077A5AF /* XCRemoteSwiftPackageReference "SwiftCBOR" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/myfreeweb/SwiftCBOR.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		83870D432DE9DEA60077A5AF /* SwiftCBOR */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83870D422DE9DEA60077A5AF /* XCRemoteSwiftPackageReference "SwiftCBOR" */;
+			productName = SwiftCBOR;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E09D56E32669A5F2004A809B /* Project object */;
 }
