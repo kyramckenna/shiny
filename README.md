@@ -1,4 +1,4 @@
-# Shiny
+# Passkey
 
 This app is a native app based on the sample application at https://developer.apple.com/documentation/authenticationservices/connecting_to_a_service_with_passkeys
 
@@ -11,8 +11,8 @@ This app is a native app based on the sample application at https://developer.ap
 
 To build and run this sample:
 1. Open the sample with Xcode 14 or later.
-2. Select the Shiny project.
+2. Select the Passkey project.
 3. For the project's target, select your team from the Team drop-down menu in the Signing & Capabilities pane to let Xcode automatically manage your provisioning profile.
 4. Add the Associated Domains capability using the "+ Capability" button in the same pane, and specify your domain with the `webcredentials` service.
 5. Ensure an `apple-app-site-association` (AASA) file is present on your domain in the `.well-known` directory, and that it contains an entry for this app's App ID for the `webcredentials` service.
-6. In the `AccountManager.swift` file, replace all occurrences of `example.com` with the name of your domain.
+6. In `Shared/AuthService/REST/Constants.swift`, update all server-provided configuration values (for example `Config.relyingPartyID`, `Config.associatedDomain`, `Config.serverBaseURL`, and `Config.serverFallbackURL`).

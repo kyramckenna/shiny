@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+// Central place for deployment-specific values.
+final class Config {
+    static let relyingPartyID = "shiny.tkhqlabs.xyz"
+    static let associatedDomain = "webcredentials:\(relyingPartyID)"
+    static let serverBaseURL = "https://emea-rp.identityx-cloud.com/natwest-fido2-demo/"
+    static let serverFallbackURL = "emea-rp.identityx-cloud.com/ps-w3c"
+    static let appGroupIdentifier = "group.daon"
+    static let appIdentifier = "X35FV693K3.com.daon.shiny"
+}
+
 @propertyWrapper
 struct UserDefault<T> {
     let key: String
@@ -64,7 +74,7 @@ struct Constants {
     }
     
     struct Server {
-        static var Url: String = "emea-rp.identityx-cloud.com/ps-w3c"
+        static var Url: String = Config.serverFallbackURL
     }
     
     struct Liveness {

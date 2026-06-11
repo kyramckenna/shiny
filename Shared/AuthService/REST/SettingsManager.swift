@@ -35,7 +35,7 @@ class SettingsManager: NSObject
     // Push notification
     internal var notification : [AnyHashable: Any]?
         
-    let defaults = UserDefaults(suiteName: "group.daon")
+    let defaults = UserDefaults(suiteName: Config.appGroupIdentifier)
     
     // No group
     // let defaults = UserDefaults(suiteName: nil)
@@ -53,7 +53,7 @@ class SettingsManager: NSObject
     
     private func setDefaults()
     {
-        let initialDefaultsPath = Bundle.main.path(forResource: "defaultPrefs", ofType: "plist")
+        ////let initialDefaultsPath = Bundle.main.path(forResource: "defaultPrefs", ofType: "plist")
         //let keyedValues         = NSDictionary(contentsOfFile: initialDefaultsPath!)
         
         //defaults?.register(defaults: keyedValues as! Dictionary)

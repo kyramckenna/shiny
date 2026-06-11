@@ -15,7 +15,7 @@ extension NSNotification.Name {
 }
 
 class AccountManager: NSObject, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
-    let domain = "shiny.tkhqlabs.xyz"
+    let domain = Config.relyingPartyID
     var authenticationAnchor: ASPresentationAnchor?
     var isPerformingModalRequest = false
 

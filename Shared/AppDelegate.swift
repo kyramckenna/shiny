@@ -11,9 +11,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let accountManager = AccountManager()
 
+    fileprivate var currentServerInfo = SettingsManager.shared.url()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // The override point for customization after app launch.
+        
+        // HARDCODE SERVER URL
+        setUpRESTUrl()
+        
         return true
+    }
+    
+    func setUpRESTUrl(){
+        
+        Constants.Server.Url = Config.serverBaseURL
+        SettingsManager.shared.setServer(url: Constants.Server.Url)
     }
 
     // MARK: UISceneSession Lifecycle
