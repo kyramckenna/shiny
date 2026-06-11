@@ -15,4 +15,15 @@ To build and run this sample:
 3. For the project's target, select your team from the Team drop-down menu in the Signing & Capabilities pane to let Xcode automatically manage your provisioning profile.
 4. Add the Associated Domains capability using the "+ Capability" button in the same pane, and specify your domain with the `webcredentials` service.
 5. Ensure an `apple-app-site-association` (AASA) file is present on your domain in the `.well-known` directory, and that it contains an entry for this app's App ID for the `webcredentials` service.
-6. In `Shared/AuthService/REST/Constants.swift`, update all server-provided configuration values (for example `Config.relyingPartyID`, `Config.associatedDomain`, `Config.serverBaseURL`, and `Config.serverFallbackURL`).
+6. In `Shared/AuthService/REST/Constants.swift`, update these deployment-specific `Config` values:
+   - `Config.relyingPartyID`
+   - `Config.associatedDomain`
+   - `Config.serverBaseURL`
+   - `Config.serverFallbackURL`
+   - `Config.appGroupIdentifier`
+   - `Config.appIdentifier`
+7. Ensure Signing & Capabilities values match your configuration:
+   - Associated Domains includes `webcredentials:<your relying party domain>`
+   - App Groups includes your configured app group (for example `group.daon`)
+8. Confirm your AASA `webcredentials` section includes your full App ID (`TEAMID.bundle.identifier`).
+9. No other source files should require updates unless there are leftover hardcoded placeholders.
